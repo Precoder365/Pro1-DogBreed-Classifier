@@ -34,10 +34,10 @@ def classifier(img_path, model_name):
             "Authorization": f"Bearer {openai.api_key}"
         }
 
-        prompt = f"Analyze the following image and describe what's in it:\n![image](data:image/jpeg;base64,{base64_image})"
+        prompt = f"Given an image, identify if it is a dog. If it is, return the breed name according to the ImageNet dataset labels. If it's not a dog, return the most likely category from the ImageNet labels. Only the name of the breed or category should be returned.:\n![image](data:image/jpeg;base64,{base64_image})"
 
         payload = {
-            "model": "gpt-4",
+            "model": "gpt-4o",
             "messages": [
                 {"role": "user", "content": prompt}
             ],
